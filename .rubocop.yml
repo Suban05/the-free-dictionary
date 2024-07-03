@@ -43,3 +43,10 @@ RSpec/MultipleExpectations:
 
 Gemspec/RequiredRubyVersion:
   Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - 'the-free-dictionary.gemspec'
