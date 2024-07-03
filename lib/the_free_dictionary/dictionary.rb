@@ -4,21 +4,14 @@ require "net/http"
 
 module TheFreeDictionary
   class Dictionary
-    attr_accessor :statement, :http_module, :hostname, :language, :region
+    attr_accessor :language, :region
 
-    def initialize
-      @http_module = Net::HTTP
-    end
-
-    def self.find
-      dictionary = new
-      yield dictionary if block_given?
-
-      uri = URI(URI::Parser.new.escape("https://#{dictionary.language}.thefreedictionary.com/#{dictionary.statement}"))
+    def find(statement)
+      uri = build_uri(statement)
       begin
-        response = dictionary.http_module.get_response(uri)
-        audio_data = response.body.match(/#{dictionary.language}\/#{dictionary.region}[^"]+/)
-        transcription_data = response.body.match(/<span[^>]*onclick="pron_key\(1\)"[^>]*class="pron"[^>]*>\s*\(?([^)]+)\)?\s*<\/span>/)
+        response = Net::HTTP.get_response(uri)
+        audio_data = find_audio_data(response)
+        transcription_data = find_transcription_data(response)
       rescue Socket::ResolutionError
         audio_data = nil
         transcription_data = nil
@@ -39,7 +32,19 @@ module TheFreeDictionary
 
     private
 
-    def self.decode_html_entities(string)
+    def build_uri(statement)
+      URI(URI::Parser.new.escape("https://#{@language}.thefreedictionary.com/#{statement}"))
+    end
+
+    def find_audio_data(response)
+      response.body.match(/#{@language}\/#{@region}[^"]+/)
+    end
+
+    def find_transcription_data(response)
+      response.body.match(/<span[^>]*onclick="pron_key\(1\)"[^>]*class="pron"[^>]*>\s*\(?([^)]+)\)?\s*<\/span>/)
+    end
+
+    def decode_html_entities(string)
       string.gsub(/&#(\d+);/) { |match| $1.to_i.chr(Encoding::UTF_8) }
     end
   end

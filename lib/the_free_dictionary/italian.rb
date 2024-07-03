@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
 module TheFreeDictionary
-  class Italian
-    def find(statement)
-      TheFreeDictionary::Dictionary.find do |config|
-        config.statement = statement
-        config.language = 'it'
-        config.region = 'IT'
-      end
+  class Italian < Dictionary
+    def initialize
+      @language = 'it'
+      @region = 'IT'
     end
   end
 end
