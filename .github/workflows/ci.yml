@@ -27,5 +27,7 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
+    - name: Check Rubocop compliance
+      run: bundle exec rubocop --format github
     - name: Run tests
       run: bundle exec rspec
