@@ -33,7 +33,6 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/NestedGroups:
   Enabled: false
 
-# Для отключения конкретных файлов и директорий
 RSpec/ExampleLength:
   Exclude:
     - 'spec/**/*'
