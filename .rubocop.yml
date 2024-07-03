@@ -16,6 +16,7 @@ Metrics/BlockLength:
     - context
     - describe
     - task
+
 Metrics/MethodLength:
   Exclude:
     - spec/**/*
@@ -23,7 +24,23 @@ Metrics/MethodLength:
 Layout/LineLength:
   Max: 120
 
+Lint/MissingSuper:
+  Enabled: false
+
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
+
 RSpec/NestedGroups:
+  Enabled: false
+
+# Для отключения конкретных файлов и директорий
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/**/*'
+
+Gemspec/RequiredRubyVersion:
   Enabled: false
