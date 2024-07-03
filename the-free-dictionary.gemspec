@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'the-free-dictionary'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.summary     = 'TheFreeDictionary is a gem that fetches information about words from https://www.thefreedictionary.com/'
   s.authors     = ['Anatoly Busygin']
   s.email       = 'anatolyb94@gmail.com'
@@ -12,4 +12,9 @@ Gem::Specification.new do |s|
   s.homepage =
     'https://github.com/Suban05/the-free-dictionary'
   s.license = 'MIT'
+  s.metadata = {
+    "homepage_uri" => s.homepage,
+    "source_code_uri" => 'https://github.com/Suban05/the-free-dictionary',
+    "bug_tracker_uri" => 'https://github.com/Suban05/the-free-dictionary/issues'
+  }
 end
