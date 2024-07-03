@@ -16,9 +16,6 @@ jobs:
     strategy:
       matrix:
         ruby-version: [ '3.3.0' ]
-    env:
-      CONNECT_LOGIN: "login"
-      CONNECT_PASSWORD: "password"
 
     steps:
     - uses: actions/checkout@v3

@@ -2,16 +2,13 @@
 
 source 'https://rubygems.org'
 
-gem 'rake', '~> 13.0'
+gem 'rake'
 group :test do
-  gem 'rspec', '~> 3.4'
-  gem 'vcr', '~> 6.0'
-  gem 'webmock', '~> 3.18.1'
-end
-
-group :development do
-  gem 'rubocop', '~> 1.54.1'
-  gem 'rubocop-performance', '~> 1.18'
-  gem 'rubocop-rake', '~> 0.6.0'
-  gem 'rubocop-rspec', '~> 2.22.0'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rake'
+  gem 'rubocop-rspec'
+  gem 'vcr'
+  gem 'webmock'
 end
