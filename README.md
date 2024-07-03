@@ -33,7 +33,7 @@ $ gem install the-free-dictionary
 Here's a quick example to get you started:
 
 ```ruby
-require 'the-free-dictionary'
+require 'the_free_dictionary'
 
 dictionary = TheFreeDictionary::English.new
 result = dictionary.find('glossary')
