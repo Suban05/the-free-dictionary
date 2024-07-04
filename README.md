@@ -36,7 +36,7 @@ Here's a quick example to get you started:
 require 'the_free_dictionary'
 
 dictionary = TheFreeDictionary::English.new
-result = dictionary.find('glossary')
+result = dictionary.find('glossary') # => {:sound=>"https://img2.tfd.com/pron/mp3/en/US/st/stdyd3sjsssydsstykgk.mp3", :transcription=>"ˈɡlɒsərɪ"}
 
 puts "Sound URL: #{result[:sound]}"
 puts "Transcription: #{result[:transcription]}"
