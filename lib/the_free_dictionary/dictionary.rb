@@ -20,7 +20,7 @@ module TheFreeDictionary
     def fetch(uri)
       Net::HTTP.get_response(uri)
     rescue Socket::ResolutionError
-      nil
+      TheFreeDictionary::NilResponse.new
     end
 
     def build_uri(statement)

@@ -44,5 +44,22 @@ RSpec.describe TheFreeDictionary::English do
         expect(result[:transcription]).to eq('')
       end
     end
+
+    context 'when the internet is disabled' do
+      it 'returns empty result' do
+        VCR.turn_off!
+        WebMock.disable_net_connect!(allow_localhost: true)
+        stub_request(:get, 'https://en.thefreedictionary.com/hello')
+          .to_raise(Socket::ResolutionError.new('Simulated DNS resolution error'))
+        word = 'hello'
+        result = dictionary.find(word)
+        expect(result).to be_an_instance_of(Hash)
+        expect(result).to have_key(:sound)
+        expect(result).to have_key(:transcription)
+
+        expect(result[:sound]).to eq('')
+        expect(result[:transcription]).to eq('')
+      end
+    end
   end
 end
