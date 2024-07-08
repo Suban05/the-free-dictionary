@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://en.thefreedictionary.com/affordable
+    uri: https://www.thefreedictionary.com/affordable
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Host:
-      - en.thefreedictionary.com
+      - www.thefreedictionary.com
   response:
     status:
       code: 200

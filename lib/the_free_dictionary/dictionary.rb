@@ -4,15 +4,24 @@ require 'net/http'
 
 module TheFreeDictionary
   class Dictionary
-    attr_accessor :language, :region
+    attr_accessor :language, :region, :subdomain
 
     def find(statement)
-      uri = build_uri(statement)
+      uri = build_uri("#{base_url}/#{statement}")
       response = fetch(uri)
       sound = build_sound_url(response)
       transcription = fetch_transcription(response)
 
       { sound:, transcription: }
+    end
+
+    def word_of_day
+      response = fetch(build_uri(base_url))
+      match = response.body.match(%r{<a href="\/([^"]+)">Def[^<]+<\/a>})
+      word = ""
+      word = match[1] if match
+
+      find(word).merge({ word: })
     end
 
     private
@@ -23,8 +32,8 @@ module TheFreeDictionary
       TheFreeDictionary::NilResponse.new
     end
 
-    def build_uri(statement)
-      URI(URI::DEFAULT_PARSER.escape("https://#{@language}.thefreedictionary.com/#{statement}"))
+    def build_uri(url)
+      URI(URI::DEFAULT_PARSER.escape(url))
     end
 
     def build_sound_url(response)
@@ -48,6 +57,14 @@ module TheFreeDictionary
 
     def decode_html_entities(string)
       string.gsub(/&#(\d+);/) { |_match| ::Regexp.last_match(1).to_i.chr(Encoding::UTF_8) }
+    end
+
+    def base_url
+      "https://#{@subdomain || @language}.#{host}"
+    end
+
+    def host
+      "thefreedictionary.com"
     end
   end
 end

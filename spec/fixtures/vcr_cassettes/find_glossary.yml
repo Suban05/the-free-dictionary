@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://en.thefreedictionary.com/glossary
+    uri: https://www.thefreedictionary.com/glossary
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Host:
-      - en.thefreedictionary.com
+      - www.thefreedictionary.com
   response:
     status:
       code: 200
