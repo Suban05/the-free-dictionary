@@ -1,4 +1,5 @@
 # TheFreeDictionary
+[![Build Status](https://github.com/Suban05/the-free-dictionary/workflows/CI/badge.svg)](https://github.com/Suban05/the-free-dictionary/actions)
 
 TheFreeDictionary is a versatile Ruby library that fetches information about words from various languages. It retrieves the pronunciation link (audio) and the transcription for a given word from [The Free Dictionary website](https://www.thefreedictionary.com).
 
