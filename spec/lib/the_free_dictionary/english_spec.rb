@@ -49,7 +49,7 @@ RSpec.describe TheFreeDictionary::English do
       it 'returns empty result' do
         VCR.turn_off!
         WebMock.disable_net_connect!(allow_localhost: true)
-        stub_request(:get, 'https://en.thefreedictionary.com/hello')
+        stub_request(:get, 'https://www.thefreedictionary.com/hello')
           .to_raise(Socket::ResolutionError.new('Simulated DNS resolution error'))
         word = 'hello'
         result = dictionary.find(word)
@@ -59,6 +59,17 @@ RSpec.describe TheFreeDictionary::English do
 
         expect(result[:sound]).to eq('')
         expect(result[:transcription]).to eq('')
+      end
+    end
+  end
+
+  describe '#word_of_day' do
+    it 'gets word of the day' do
+      VCR.use_cassette('english_word_of_day') do
+        result = dictionary.word_of_day
+        expect(result[:word]).to eq('extralegal')
+        expect(result[:sound]).to eq('https://img2.tfd.com/pron/mp3/en/US/d5/d5ddsosssdddsjd5dndosdh5h5.mp3')
+        expect(result[:transcription]).to eq('ˌɛkstrəˈliːɡəl')
       end
     end
   end

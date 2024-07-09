@@ -5,6 +5,7 @@ module TheFreeDictionary
     def initialize
       @language = 'en'
       @region = 'US'
+      @subdomain = 'www'
     end
   end
 end

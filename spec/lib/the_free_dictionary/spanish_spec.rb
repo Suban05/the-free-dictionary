@@ -45,4 +45,15 @@ RSpec.describe TheFreeDictionary::Spanish do
       end
     end
   end
+
+  describe '#word_of_day' do
+    it 'gets word of the day' do
+      VCR.use_cassette('spanish_word_of_day') do
+        result = dictionary.word_of_day
+        expect(result[:word]).to eq('liquidez')
+        expect(result[:sound]).to eq('https://img2.tfd.com/pron/mp3/es/EU/so/sod7drsgstd3dod5yjgk.mp3')
+        expect(result[:transcription]).to eq("liki'deθ")
+      end
+    end
+  end
 end
