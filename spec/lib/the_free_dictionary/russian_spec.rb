@@ -14,8 +14,8 @@ RSpec.describe TheFreeDictionary::Russian do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/ru/RU/g5/g5hrhjghgdghgoh5ghffgh.mp3')
-        expect(result).to include(:transcription => 'kaˈrtofʲilʲ')
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/ru/RU/g5/g5hrhjghgdghgoh5ghffgh.mp3')
+        expect(result).to include(transcription: 'kaˈrtofʲilʲ')
       end
     end
   end

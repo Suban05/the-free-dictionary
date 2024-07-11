@@ -14,8 +14,8 @@ RSpec.describe TheFreeDictionary::Spanish do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/es/EU/dk/dkskdhdndfdssydyhn.mp3')
-        expect(result).to include(:transcription => "pa'laβɾa")
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/es/EU/dk/dkskdhdndfdssydyhn.mp3')
+        expect(result).to include(transcription: "pa'laβɾa")
       end
     end
 
@@ -27,8 +27,8 @@ RSpec.describe TheFreeDictionary::Spanish do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/es/EU/dk/dkslsgsgstnjdod5dtgk.mp3')
-        expect(result).to include(:transcription => '')
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/es/EU/dk/dkslsgsgstnjdod5dtgk.mp3')
+        expect(result).to include(transcription: '')
       end
     end
 
@@ -40,8 +40,8 @@ RSpec.describe TheFreeDictionary::Spanish do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => '')
-        expect(result).to include(:transcription => '')
+        expect(result).to include(sound: '')
+        expect(result).to include(transcription: '')
       end
     end
   end
@@ -51,8 +51,8 @@ RSpec.describe TheFreeDictionary::Spanish do
       VCR.use_cassette('spanish_word_of_day') do
         result = dictionary.word_of_day
         expect(result[:word]).to eq('liquidez')
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/es/EU/so/sod7drsgstd3dod5yjgk.mp3')
-        expect(result).to include(:transcription => "liki'deθ")
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/es/EU/so/sod7drsgstd3dod5yjgk.mp3')
+        expect(result).to include(transcription: "liki'deθ")
       end
     end
   end

@@ -14,8 +14,8 @@ RSpec.describe TheFreeDictionary::French do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/fr/EU/sj/sjdhskskd3sgsrsthn.mp3')
-        expect(result).to include(:transcription => 'bɔ̃ʒuʀ')
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/fr/EU/sj/sjdhskskd3sgsrsthn.mp3')
+        expect(result).to include(transcription: 'bɔ̃ʒuʀ')
       end
     end
   end

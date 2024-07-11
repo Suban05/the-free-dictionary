@@ -14,8 +14,8 @@ RSpec.describe TheFreeDictionary::Italian do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/it/IT/dn/dndgdrdgshht.mp3')
-        expect(result).to include(:transcription => "'tʃao")
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/it/IT/dn/dndgdrdgshht.mp3')
+        expect(result).to include(transcription: "'tʃao")
       end
     end
   end

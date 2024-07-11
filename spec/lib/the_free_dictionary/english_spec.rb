@@ -14,8 +14,8 @@ RSpec.describe TheFreeDictionary::English do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/en/US/st/stdyd3sjsssydsstykgk.mp3')
-        expect(result).to include(:transcription => 'ˈɡlɒsərɪ')
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/en/US/st/stdyd3sjsssydsstykgk.mp3')
+        expect(result).to include(transcription: 'ˈɡlɒsərɪ')
       end
     end
 
@@ -27,8 +27,8 @@ RSpec.describe TheFreeDictionary::English do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/en/US/df/dfdjdydtshssdodydosfdnh5h5.mp3')
-        expect(result).to include(:transcription => 'əˈfɔr də bəl, əˈfoʊr-')
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/en/US/df/dfdjdydtshssdodydosfdnh5h5.mp3')
+        expect(result).to include(transcription: 'əˈfɔr də bəl, əˈfoʊr-')
       end
     end
 
@@ -40,8 +40,8 @@ RSpec.describe TheFreeDictionary::English do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => '')
-        expect(result).to include(:transcription => '')
+        expect(result).to include(sound: '')
+        expect(result).to include(transcription: '')
       end
     end
 
@@ -57,8 +57,8 @@ RSpec.describe TheFreeDictionary::English do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result).to include(:sound => '')
-        expect(result).to include(:transcription => '')
+        expect(result).to include(sound: '')
+        expect(result).to include(transcription: '')
       end
     end
   end
@@ -68,8 +68,8 @@ RSpec.describe TheFreeDictionary::English do
       VCR.use_cassette('english_word_of_day') do
         result = dictionary.word_of_day
         expect(result[:word]).to eq('extralegal')
-        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/en/US/d5/d5ddsosssdddsjd5dndosdh5h5.mp3')
-        expect(result).to include(:transcription => 'ˌɛkstrəˈliːɡəl')
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/en/US/d5/d5ddsosssdddsjd5dndosdh5h5.mp3')
+        expect(result).to include(transcription: 'ˌɛkstrəˈliːɡəl')
       end
     end
   end
