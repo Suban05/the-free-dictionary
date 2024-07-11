@@ -14,8 +14,8 @@ RSpec.describe TheFreeDictionary::Chinese do
         expect(result).to have_key(:sound)
         expect(result).to have_key(:transcription)
 
-        expect(result[:sound]).to eq('https://img2.tfd.com/pron/mp3/zh/CN/jn/jnhlhh.mp3')
-        expect(result[:transcription]).to eq('')
+        expect(result).to include(:sound => 'https://img2.tfd.com/pron/mp3/zh/CN/jn/jnhlhh.mp3')
+        expect(result).to include(:transcription => '')
       end
     end
   end
