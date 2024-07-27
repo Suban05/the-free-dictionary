@@ -55,4 +55,34 @@ TheFreeDictionary provides classes for different languages:
 - `TheFreeDictionary::Russian`
 - `TheFreeDictionary::Chinese`
 
-Each class has a `find` method that takes a word as an argument and returns a hash with `:sound` and `:transcription`.
+## Methods
+
+### `find`
+
+It finds information about a word. For example:
+
+```ruby
+dictionary = TheFreeDictionary::English.new
+result = dictionary.find('glossary') 
+# {
+#  :sound => "https://img2.tfd.com/pron/mp3/en/US/st/stdyd3sjsssydsstykgk.mp3",
+#  :transcription => "ˈɡlɒsərɪ"
+# }
+```
+
+### `word_of_day`
+
+It gets word of the day. For example:
+
+```ruby
+dictionary = TheFreeDictionary::English.new
+result = dictionary.word_of_day
+# {
+#  :sound=>"https://img2.tfd.com/pron/mp3/en/US/st/stsdsldodfd3sgshykgk.mp3",
+#  :transcription=>"ʌnˈɡeɪnlɪ",
+#  :word=>"ungainly",
+#  :definition=>"(adjective) Lacking grace or ease of movement or form.",
+#  :synonyms=>"clumsy, clunky, gawky, unwieldy",
+#  :usage=>"He was a gawky lad with long ungainly legs, but she thought he was the most handsome boy she had ever seen."
+# }
+```
