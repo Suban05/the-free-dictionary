@@ -80,8 +80,9 @@ RSpec.describe TheFreeDictionary::English do
         expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/en/US/st/stsdsldodfd3sgshykgk.mp3')
         expect(result).to include(transcription: 'ʌnˈɡeɪnlɪ')
         expect(result).to include(definition: '(adjective) Lacking grace or ease of movement or form.')
-        expect(result).to include(synonyms: "clumsy, clunky, gawky, unwieldy")
-        expect(result).to include(usage: 'He was a gawky lad with long ungainly legs, but she thought he was the most handsome boy she had ever seen.')
+        expect(result).to include(synonyms: 'clumsy, clunky, gawky, unwieldy')
+        expect(result).to include(usage: 'He was a gawky lad with long ungainly legs, but she thought ' \
+                                         'he was the most handsome boy she had ever seen.')
       end
     end
   end
