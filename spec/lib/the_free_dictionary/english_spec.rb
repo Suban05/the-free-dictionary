@@ -72,5 +72,17 @@ RSpec.describe TheFreeDictionary::English do
         expect(result).to include(transcription: 'ˌɛkstrəˈliːɡəl')
       end
     end
+
+    it 'gets word of the day with definition, synonyms and usage example' do
+      VCR.use_cassette('english_word_of_day_definition_synonyms_example') do
+        result = dictionary.word_of_day
+        expect(result[:word]).to eq('ungainly')
+        expect(result).to include(sound: 'https://img2.tfd.com/pron/mp3/en/US/st/stsdsldodfd3sgshykgk.mp3')
+        expect(result).to include(transcription: 'ʌnˈɡeɪnlɪ')
+        expect(result).to include(definition: '(adjective) Lacking grace or ease of movement or form.')
+        expect(result).to include(synonyms: "clumsy, clunky, gawky, unwieldy")
+        expect(result).to include(usage: 'He was a gawky lad with long ungainly legs, but she thought he was the most handsome boy she had ever seen.')
+      end
+    end
   end
 end

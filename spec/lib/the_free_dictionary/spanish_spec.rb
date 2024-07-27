@@ -55,5 +55,17 @@ RSpec.describe TheFreeDictionary::Spanish do
         expect(result).to include(transcription: "liki'deθ")
       end
     end
+
+    it 'gets word of the day with definition, synonyms and usage example' do
+      VCR.use_cassette('spanish_word_of_day_definition_synonyms_example') do
+        result = dictionary.word_of_day
+        expect(result[:word]).to eq('matacán')
+        expect(result).to include(sound: '')
+        expect(result).to include(transcription: '')
+        expect(result).to include(definition: '(sustantivo) En las antiguas fortificaciones, obra que sobresale en la parte superior de una muralla, torre o puerta, y que tiene parapeto y aberturas para defenderse del enemigo.')
+        expect(result).to include(synonyms: "voladizo, saledizo, parapeto")
+        expect(result).to include(usage: 'El capitán dirigió la defensa de la ciudad desde un matacán de la muralla.')
+      end
+    end
   end
 end
