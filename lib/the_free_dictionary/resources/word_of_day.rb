@@ -23,23 +23,17 @@ module TheFreeDictionary
         Nokogiri::HTML(html, nil, 'UTF-8')
       end
 
-      def find_word(nokogiri)
-        find_content(nokogiri, '//h3/a')
-      end
+      def find_word(nokogiri) = content(nokogiri, '//h3/a')
 
-      def find_definition(nokogiri)
-        find_content(nokogiri, '//tr[1]/td[2]')
-      end
+      def find_definition(nokogiri) = content(nokogiri, '//tr[1]/td[2]')
 
-      def find_synonyms(nokogiri)
-        find_content(nokogiri, '//tr[2]/td[2]')
-      end
+      def find_synonyms(nokogiri) = content(nokogiri, '//tr[2]/td[2]')
 
       def find_usage(nokogiri)
-        find_content(nokogiri, '//tr[3]/td[2]').sub(/\r\n Discuss\. Play$/, '')
+        content(nokogiri, '//tr[3]/td[2]').sub(/\r\n Discuss\. Play$/, '')
       end
 
-      def find_content(nokogiri, expression)
+      def content(nokogiri, expression)
         nokogiri.at_xpath(expression).text.strip
       end
     end
